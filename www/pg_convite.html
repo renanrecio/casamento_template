@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-<link rel="icon" href="https://sistematize.com/aplicativo/debutante_template/icone.png">
+<link rel="icon" href="imagens/icone.png">
 
 <meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
 <meta name="apple-mobile-web-app-title" content="App Debutante" />
@@ -205,6 +205,10 @@ if(typeof localStorage.versao_app === 'undefined'){
 				}//fim do if		
 				
 				
+			}else{
+			
+				alert('Sem internet, conecte-se para ver o Mapa!');
+				document.getElementById("div_conteudo_localizacao").innerHTML = localStorage.div_conteudo_localizacao;
 			}
 			}
 			}	

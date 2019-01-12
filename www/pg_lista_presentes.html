@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>App Debutante</title>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--<link rel="shortcut icon" href="imagesgabi/coroa_favicon.ico">-->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet" type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300i" rel="stylesheet"  type='text/css'>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="icon" href="imagens/icone.png">
+
+</head>
+
+<body>
+
+
+<div id="div_conteudo_lista_presentes" style="position: relative; top:3em;">
+
+	<!--
+	
+	
+	-->
+
+</div>
+
+
+<!-- Cabeçalho -->
+<div style="position: fixed; top:0em;  width:100%; height: 3em; background-color: rgb(248, 248, 248);">
+	<center>
+		<span style="font-size:18px; text-align: center; line-height: 2.5em; ">Lista de Presentes</span>
+	</center>
+</div>
+
+
+<span onclick="window.location = 'index.html';" style="position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
+
+<!-- Fim do Cabeçalho -->
+
+
+
+
+<!-- Variaveis de configuração do App -->
+<script src="config_app.js"></script>
+
+<!-- Carregar o que estive no localStorage na div_conteudo_lista_presentes para funciona offline -->
+
+<script>
+if( (localStorage.div_conteudo_lista_presentes !== '') && (typeof localStorage.div_conteudo_lista_presentes !== 'undefined')){
+	document.getElementById("div_conteudo_lista_presentes").innerHTML = localStorage.div_conteudo_lista_presentes;
+}else{
+	localStorage.div_conteudo_lista_presentes = "<center>Sem Internet! Conecte-se à internet para ver o conteúdo do App! </center>";
+}
+				
+				
+</script>
+
+
+<!-- Pegar conteudo do BD e colocar na div_conteudo_lista_presentes -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" ></script> 
+<script>
+//Pegar conteudo convite do BD
+			 
+			 var xmlHttp;
+			 var str;
+			 
+			 
+			function createXMLHttpRequest() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest() {
+			createXMLHttpRequest();
+			xmlHttp.onreadystatechange = handleStateChange;
+			
+			
+			
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/pegar_conteudo_do_bd.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("id_app="+id_app+"&aba_do_app=lista_presentes");
+
+			
+			
+			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
+			
+			
+		
+			}
+
+			
+			function handleStateChange() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				
+				str = xmlHttp.responseText.trim();
+				
+				if(localStorage.div_conteudo_lista_presentes != str){
+				
+					document.getElementById("div_conteudo_lista_presentes").innerHTML = str;
+					
+					localStorage.div_conteudo_lista_presentes = str;
+					
+				}//fim do if
+				
+				
+			}
+			}
+			}	
+			
+			startRequest();
+			
+</script>
+
+
+
+</body>
+</html>
