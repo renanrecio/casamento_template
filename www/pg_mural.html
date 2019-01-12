@@ -168,7 +168,7 @@ if( (localStorage.nome_depoimento !== '') && (typeof localStorage.nome_depoiment
 			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/selecionar_recados.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
-			xmlHttp.send("id_app="+id_app);
+			xmlHttp.send("id_app="+id_app+"&tipo_app=casamento");
 
 			
 			
