@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+<title>App Debutante</title>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--<link rel="shortcut icon" href="imagesgabi/coroa_favicon.ico">-->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet" type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300i" rel="stylesheet"  type='text/css'>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="icon" href="https://sistematize.com/aplicativo/debutante_template/icone.png">
+
+
+
+
+<body>
+
+<div style="position: relative; top:0em;  width:100%; height: 3em; background-color: rgb(248, 248, 248);">
+	<center>
+		<span  style="font-size:18px; text-align: center; line-height: 2.5em; ">Local da festa</span>
+	</center>
+</div>
+
+<span onclick="window.location = 'index.html';"  style="position: absolute; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
+
+<div id="div_conteudo_localizacao" style="position: relative; top:1em;">
+
+	<!--
+	<center>
+		<iframe width="100%" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYKQvQ46L5NQqZ4KBZF5fSuSUaNZUO5Vo&#10;    &amp;q=Av. Helio Pelegrini, 801 - Vila Olimpia" allowfullscreen="">
+		</iframe>
+	</center>
+
+	
+	<p style="font-size:1.5em; line-height:1em; margin-left:10px;">Buffet Spazio Olímpia</p>
+	<p style="font-size:1em; width:80%; margin-left:10px; margin-right:10px;"> Av. Hélio Pellegrino, 801 - Vila Olímpia - São Paulo - SP</p>
+
+	<p onclick="window.location = 'index.html';" style="font-size:1em; width:80%; margin-left:10px; margin-right:10px;">Voltar</p>
+	-->
+	 
+</div>
+
+
+
+
+<!-- Variaveis de configuração do App -->
+<script src="config_app.js"></script>
+
+<!-- Carregar o que estive no localStorage na div_conteudo_localizacao para funciona offline -->
+
+<script>
+if( (localStorage.div_conteudo_localizacao !== '') && (typeof localStorage.div_conteudo_localizacao !== 'undefined')){
+	document.getElementById("div_conteudo_localizacao").innerHTML = localStorage.div_conteudo_localizacao;
+}else{
+	localStorage.div_conteudo_localizacao = "<center>Sem Internet! Conecte-se à internet para ver o conteúdo do App! </center>";
+}
+				
+				
+</script>
+
+
+<!-- Pegar conteudo do BD e colocar na div_conteudo_localizacao -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" ></script> 
+<script>
+//Pegar conteudo convite do BD
+			 
+			 var xmlHttp;
+			 var str;
+			 
+			 
+			function createXMLHttpRequest() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest() {
+			createXMLHttpRequest();
+			xmlHttp.onreadystatechange = handleStateChange;
+			
+			
+			
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/pegar_conteudo_do_bd.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("id_app="+id_app+"&aba_do_app=localizacao");
+
+			
+			
+			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
+			
+			
+		
+			}
+
+			
+			function handleStateChange() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				
+				str = xmlHttp.responseText.trim();
+				
+				if(localStorage.div_conteudo_localizacao != str){
+				
+					document.getElementById("div_conteudo_localizacao").innerHTML = str;
+					
+					localStorage.div_conteudo_localizacao = str;
+					
+				}//fim do if
+				
+				
+			}else{
+			
+				alert('Sem internet, conecte-se para ver o Mapa!');
+				document.getElementById("div_conteudo_localizacao").innerHTML = localStorage.div_conteudo_localizacao;
+			}
+			}
+			}	
+			
+			startRequest();
+			
+</script>
+
+
+</body>
+</html>

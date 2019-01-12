@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html>
+<title>App Debutante</title>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--<link rel="shortcut icon" href="imagesgabi/coroa_favicon.ico">-->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet" type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300i" rel="stylesheet"  type='text/css'>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="icon" href="https://sistematize.com/aplicativo/debutante_template/icone.png">
+
+
+<body>
+
+
+<div id="div_conteudo_fotos_festa"  style="position: relative; top:3em;">
+
+<!--
+	<style>
+	* {
+	  box-sizing: border-box;
+	}
+
+	body {
+	  margin: 0;
+	  font-family: Arial;
+	}
+
+	.header {
+	  text-align: center;
+	  padding: 32px;
+	}
+
+	.row {
+	  display: -ms-flexbox; /* IE10 */
+	  display: flex;
+	  -ms-flex-wrap: wrap; /* IE10 */
+	  flex-wrap: wrap;
+	  padding: 0 4px;
+	}
+
+	/* Create four equal columns that sits next to each other */
+	.column {
+	  -ms-flex: 50%; /* IE10 */
+	  flex: 50%;
+	  max-width: 50%;
+	  padding: 0 4px;
+	}
+
+	.column img {
+	  margin-top: 8px;
+	  vertical-align: middle;
+	}
+
+	/* Responsive layout - makes a two column-layout instead of four columns */
+	@media screen and (max-width: 400px) {
+	  .column {
+		-ms-flex: 50%;
+		flex: 50%;
+		max-width: 50%;
+	  }
+	}
+
+	/* Responsive layout - makes the two columns stack on top of each other instead of next to each other 
+	@media screen and (max-width: 300px) {
+	  .column {
+		-ms-flex: 100%;
+		flex: 100%;
+		max-width: 100%;
+	  }
+	}
+	*/
+
+		article {
+		  position: relative;
+		}
+
+		.article-img {
+		  height: 200px;
+		  width: 50%;
+		  object-fit: cover;
+		}
+
+		.article-title {
+		  position: absolute;
+		  bottom: 0;
+		  width: 100%;
+		  padding: 10px;
+		  background-color: rgba(255, 255, 255, 0.2);
+		}
+
+	</style>
+	
+	<style>
+
+	img.ampliada
+	{
+		position: absolute;
+		max-width: 80%;
+		top: 10%;
+		left: 10%;
+		border-radius: 3px;
+		box-shadow: 0 3px 6px rgba(0,0,0,0.9);
+	}
+
+
+
+	</style>
+
+
+	<section id="fotos" class="cards" style="">
+	<div class="row"> 
+	  <div class="column">
+		<article>
+		<img onclick = "document.getElementById('img_ampliada').src = this.src; document.getElementById('fotos').style.display = 'none'; document.getElementById('div_foto_ampliado').style.display = 'block';" src="https://sistematize.com/aplicativo/debutante_template/imagens/aguarde.png" style="width:100%" class="article-img" />
+		<h3 class="article-title">
+			Aguarde...
+		</h3>
+		</article>
+	  </div>
+
+	 
+	</section>
+	  
+	  
+	  
+	<div id="div_foto_ampliado" onclick="document.getElementById('fotos').style.display = 'block'; document.getElementById('div_foto_ampliado').style.display = 'none';" style="display: none; position:relative; top:0em; left:0em; width:100%;" >
+		<p style="position: fixed; top:1.25em; right:1em; color:black; font-size:1.25em;"> X </p>
+		<center>
+		<img id="img_ampliada" src='' class='ampliada' alt='' style ="" />				
+		</center>
+	</div>
+	
+	-->
+	
+</div>
+
+
+
+<!-- Cabeçalho -->
+<div style="position: fixed; top:0em;  width:100%; height: 3em; background-color: rgb(248, 248, 248);">
+	<center>
+		<span style="font-size:18px; text-align: center; line-height: 2.5em; ">Fotos da Festa</span>
+	</center>
+</div>
+
+
+<span onclick="window.location = 'index.html';" style="position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
+
+<!-- Fim do Cabeçalho -->
+
+
+
+<!-- Variaveis de configuração do App -->
+<script src="config_app.js"></script>
+
+<!-- Carregar o que estive no localStorage na div_conteudo_fotos_festa para funciona offline -->
+
+<script>
+if( (localStorage.div_conteudo_fotos_festa !== '') && (typeof localStorage.div_conteudo_fotos_festa !== 'undefined')){
+	document.getElementById("div_conteudo_fotos_festa").innerHTML = localStorage.div_conteudo_fotos_festa;
+}else{
+	localStorage.div_conteudo_fotos_festa = "<center>Sem Internet! Conecte-se à internet para ver o conteúdo do App! </center>";
+}
+				
+				
+</script>
+
+
+<!-- Pegar conteudo do BD e colocar na div_conteudo_fotos_festa -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" ></script> 
+<script>
+//Pegar conteudo convite do BD
+			 
+			 var xmlHttp;
+			 var str;
+			 
+			 
+			function createXMLHttpRequest() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest() {
+			createXMLHttpRequest();
+			xmlHttp.onreadystatechange = handleStateChange;
+			
+			
+			
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/pegar_conteudo_do_bd.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("id_app="+id_app+"&aba_do_app=fotos_festa");
+
+			
+			
+			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
+			
+			
+		
+			}
+
+			
+			function handleStateChange() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				
+				str = xmlHttp.responseText.trim();
+				
+				if(localStorage.div_conteudo_fotos_festa != str){
+				
+					document.getElementById("div_conteudo_fotos_festa").innerHTML = str;
+					
+					localStorage.div_conteudo_fotos_festa = str;
+					
+				}//fim do if
+				
+				
+			}else{
+			
+				document.getElementById("div_conteudo_fotos_festa").innerHTML = localStorage.div_conteudo_fotos_festa;
+			}
+			}
+			}	
+			
+			startRequest();
+			
+</script>
+
+
+
+</body>
+</html>

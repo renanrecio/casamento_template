@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>App Debutante</title>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--<link rel="shortcut icon" href="imagesgabi/coroa_favicon.ico">-->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet" type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300i" rel="stylesheet"  type='text/css'>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="icon" href="https://sistematize.com/aplicativo/debutante_template/icone.png">
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+
+</head>
+<body>
+
+
+<div id="div_conteudo_curiosidades" style="position: relative; top:3em;">
+
+	<!--
+	<style>
+
+	#qid {
+	  padding: 2px 5px;
+	  -moz-border-radius: 50px;
+	  -webkit-border-radius: 50px;
+	  border-radius: 10px;
+	  font-size:1em;
+	}
+	label.btn {
+		height: 2em;
+		padding: 18px 60px;
+		white-space: normal;
+		-webkit-transform: scale(1.0);
+		-moz-transform: scale(1.0);
+		-o-transform: scale(1.0);
+		-webkit-transition-duration: .3s;
+		-moz-transition-duration: .3s;
+		-o-transition-duration: .3s
+	}
+
+	label.btn:hover {
+		text-shadow: 0 3px 2px rgba(0,0,0,0.4);
+		-webkit-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+		-o-transform: scale(1.1)
+	}
+	label.btn-block {
+		text-align: left;
+		position: relative
+	}
+
+	label .btn-label {
+		position: absolute;
+		left: 0;
+		top: 0;
+		display: inline-block;
+		padding: 0 10px;
+		background: rgba(0,0,0,.15);
+		font-size: 2em;
+		
+	}
+
+	label .glyphicon {
+		top: 0em;
+		
+	}
+
+	#resposta{
+
+		font-size: 3.5em; 
+		margin-bottom:0.5em;
+	}
+
+	#pergunta{
+
+		font-size: 1em; 
+		margin-bottom:0.5em;
+	}
+
+	.modal-header {
+		background-color: transparent;
+		color: inherit
+	}
+
+	.modal-body {
+		min-height: 205px
+
+	}
+	#loadbar {
+		position: absolute;
+		width: 62px;
+		height: 77px;
+		top: 2em
+	}
+
+	.respostas{
+
+		position: relative;
+		top:0em;
+		width:99%;
+		height:2.5em;
+		font-size:1em;
+		line-height:2em;
+		background-color: #428bca;
+		color: white;
+		border-radius:5px;
+		margin-bottom:10px;
+		
+
+
+	}
+
+	.resultado_final{
+
+		position: relative;
+		top:0em;
+		width:99%;
+		height:	6em;
+		font-size:1em;
+		line-height:1.2em;
+		background-color: #428bca;
+		color: white;
+		border-radius:5px;
+		margin-bottom:20px;
+		
+
+
+	}
+
+	</style>
+
+
+	<div class="container-fluid bg-info">
+		<div class="modal-dialog" style="width:100%;">
+		
+			<div class="modal-content" id="pergunta0">
+				 <div class="modal-header">
+					<h3 id="pergunta"><span class="label label-warning" id="qid"></span> Vamos ver se você conhece bem a Gabi</h3>
+				</div>
+				<div class="modal-body">
+					
+					   <div class="quiz" id="quiz" data-toggle="buttons">
+						   <img  src="https://sistematize.com/aplicativo/debutante_template/imagens/debutante.jpg" style="width:100%; margin-bottom: 10px;" />
+						   <p>&nbsp;</p>
+							<center>
+							<div onclick="chamar('p0r1','p0r1')" id="p0r1" class="respostas">Clique aqui para começar o quiz</div>
+					   </div>
+					   
+				</div>
+			</div>
+			
+			<div class="modal-content" id="pergunta1" style="display: none;">
+				 <div class="modal-header">
+					<h3 id="pergunta"><span class="label label-warning" id="qid">1</span> Qual é a viagem dos sonhos da Gabi?</h3>
+				</div>
+				<div class="modal-body">
+					
+					   <div class="quiz" id="quiz" data-toggle="buttons">
+						   <img  src="https://sistematize.com/aplicativo/debutante_template/imagens/viagem.jpg" style="width:100%; margin-bottom: 10px;" />
+						   <p>&nbsp;</p>
+							<center>
+							<div onclick="chamar('p1r1','p1r1')" id="p1r1" class="respostas">Disney</div>
+							<div onclick="chamar('p1r2','p1r1')" id="p1r2" class="respostas">Praia de Santos</div>
+							<div onclick="chamar('p1r3','p1r1')" id="p1r3" class="respostas">Miami</div>
+							<div onclick="chamar('p1r4','p1r1')" id="p1r4" class="respostas">Fernando de Noronha</div>
+							</center>
+							</div>
+					   
+				</div>
+			</div>
+			
+			<div class="modal-content" id="pergunta2" style="display: none;">
+				 <div class="modal-header">
+					<h3 id="pergunta"><span class="label label-warning" id="qid">2</span> Qual matéria da escola ela gosta mais?</h3>
+				</div>
+				<div class="modal-body">
+					
+					   <div class="quiz" id="quiz" data-toggle="buttons">
+						   <img  src="https://sistematize.com/aplicativo/debutante_template/imagens/escola.png" style="width:100%; margin-bottom: 10px;" />
+						   <p>&nbsp;</p>
+							<center>
+							<div onclick="chamar('p2r1','p2r3')" id="p2r1" class="respostas">Matématica</div>
+							<div onclick="chamar('p2r2','p2r3')" id="p2r2" class="respostas">Português</div>
+							<div onclick="chamar('p2r3','p2r3')" id="p2r3" class="respostas">Educação Física</div>
+							<div onclick="chamar('p2r4','p2r3')" id="p2r4" class="respostas">Geografia</div>
+							</center>
+							</div>
+					   
+				</div>
+			</div>
+			
+			<div class="modal-content" id="pergunta3" style="display: none;" >
+				 <div class="modal-header">
+					<h3 id="pergunta"><span class="label label-warning" id="qid">3</span> Qual serie da Netflix ela mais gosta?</h3>
+				</div>
+				<div class="modal-body">
+					
+					   <div class="quiz" id="quiz" data-toggle="buttons">
+						   <img  src="https://sistematize.com/aplicativo/debutante_template/imagens/netflix.jpg" style="width:100%; margin-bottom: 10px;" />
+						   <p>&nbsp;</p>
+							<center>
+							<div onclick="chamar('p3r1','p3r4')" id="p3r1" class="respostas">Black List</div>
+							<div onclick="chamar('p3r2','p3r4')" id="p3r2" class="respostas">Flash</div>
+							<div onclick="chamar('p3r3','p3r4')" id="p3r3" class="respostas">Good Place</div>
+							<div onclick="chamar('p3r4','p3r4')" id="p3r4" class="respostas">Lucifer</div>
+							</center>
+							</div>
+					   
+				</div>
+			</div>
+			
+			<div class="modal-content" id="pergunta4" style="display: none;" >
+				 <div class="modal-header">
+					<h3 id="pergunta"><span class="label label-warning" id="qid">4</span> Qual superpoder a Gabi gostaria de ter?</h3>
+				</div>
+				<div class="modal-body">
+					
+					   <div class="quiz" id="quiz" data-toggle="buttons">
+						   <img  src="https://sistematize.com/aplicativo/debutante_template/imagens/poderes.jpg" style="width:100%; margin-bottom: 10px;" />
+						   <p>&nbsp;</p>
+							<center>
+							<div onclick="chamar('p4r1','p4r4')" id="p4r1" class="respostas">Voar</div>
+							<div onclick="chamar('p4r2','p4r4')" id="p4r2" class="respostas">Teletransporte</div>
+							<div onclick="chamar('p4r3','p4r4')" id="p4r3" class="respostas">Visão de raio-X</div>
+							<div onclick="chamar('p4r4','p4r4')" id="p4r4" class="respostas">Ficar invisível</div>
+							</center>
+							</div>
+					   
+				</div>
+			</div>
+			
+			<div class="modal-content" id="pergunta5" style="display: none;" >
+				 <div class="modal-header">
+					<h3 id="pergunta"><span class="label label-warning" id="qid">5</span> Qual comida ela mais gosta?</h3>
+				</div>
+				<div class="modal-body">
+					
+					   <div class="quiz" id="quiz" data-toggle="buttons">
+						   <img  src="https://sistematize.com/aplicativo/debutante_template/imagens/comidas.jpg" style="width:100%; margin-bottom: 10px;" />
+						   <p>&nbsp;</p>
+							<center>
+							<div onclick="chamar('p5r1','p5r4')" id="p5r1" class="respostas">Salmão grelhado</div>
+							<div onclick="chamar('p5r2','p5r4')" id="p5r2" class="respostas">Arroz com ovo</div>
+							<div onclick="chamar('p5r3','p5r4')" id="p5r3" class="respostas">Hot-dog</div>
+							<div onclick="chamar('p5r4','p5r4')" id="p5r4" class="respostas">Churrasco em geral</div>
+							</center>
+							</div>
+					   
+				</div>
+			</div>
+			
+			<div class="modal-content" id="resultado" style="display: none;" >
+				 <div class="modal-header">
+					<h3 id="pergunta"><span class="label label-warning" id="qid"></span> Resultado:</h3>
+				</div>
+				<div class="modal-body">
+					
+					   <div class="quiz" id="quiz" data-toggle="buttons">
+						   <img  src="https://sistematize.com/aplicativo/debutante_template/imagens/comemoracao.jpg" style="width:100%; margin-bottom: 10px;" />
+						   <p>&nbsp;</p>
+							<center>
+							<div class="resultado_final">
+								Você acertou <span id="acertos"></span> de <span id="total_de_perguntas"></span> perguntas!</br></br>
+								Agora que você sabe algumas curiosidades sobre mim, te aguardamos no meu aniversário!
+								
+							</div>
+							<div onclick="location.reload();"  class="respostas" style="background-color:green;">Clique aqui para refazer o quiz</div>
+								</center>
+							</div>
+					   
+				</div>
+			</div>
+			
+			
+			
+						   
+			
+			<div class="modal-footer text-muted">
+					<span id="answer"></span>
+			</div>
+			
+		</div>
+	</div>
+
+-->
+	
+
+</div>
+
+<!-- Scripts para funcionar o Quiz -->
+
+<script>
+	var indice = 0;
+	var respostas_certas = 0;
+	var total_perguntas = 5;
+	var contador_perguntas = 0; 
+
+	function chamar(pergunta_resposta, reposta_certa){
+
+	if(pergunta_resposta != 'p0r1'){
+
+		contador_perguntas = contador_perguntas + 1;
+		
+		
+		if(pergunta_resposta == reposta_certa){
+			$('#'+pergunta_resposta).css('background-color', 'green');
+			respostas_certas = respostas_certas + 1;
+		
+		}else{
+		
+			$('#'+reposta_certa).css('background-color', 'green');
+			$('#'+pergunta_resposta).css('background-color', 'red');
+		
+		}
+	}else{
+
+		$('#'+pergunta_resposta).css('background-color', 'green');
+	}	
+
+	setTimeout(function(){
+		$('#pergunta'+indice).fadeOut();
+	}, 1000);
+
+
+	setTimeout(function(){
+		if( contador_perguntas == total_perguntas){
+			$('#resultado').show();
+			$('#acertos').html(' '+respostas_certas+' ');
+			$('#total_de_perguntas').html(' '+total_perguntas+' ');
+		}else{
+			$('#pergunta'+(indice+1)).show();
+			//alert('indice:'+indice);
+			indice = indice + 1;
+		}
+	}, 1500);
+	}
+
+	</script>
+
+
+<!-- Cabeçalho -->
+<div style="position: fixed; top:0em;  width:100%; height: 3em; background-color: rgb(248, 248, 248);">
+	<center>
+		<span style="font-size:18px; text-align: center; line-height: 2.5em; ">Curiosidades</span>
+	</center>
+</div>
+
+
+<span onclick="window.location = 'index.html';" style="position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
+
+<!-- Fim do Cabeçalho -->
+
+
+
+
+<!-- Variaveis de configuração do App -->
+<script src="config_app.js"></script>
+
+<!-- Carregar o que estive no localStorage na div_conteudo_curiosidades para funciona offline -->
+
+<script>
+if( (localStorage.div_conteudo_curiosidades !== '') && (typeof localStorage.div_conteudo_curiosidades !== 'undefined')){
+	document.getElementById("div_conteudo_curiosidades").innerHTML = localStorage.div_conteudo_curiosidades;
+}else{
+	localStorage.div_conteudo_curiosidades = "<center>Sem Internet! Conecte-se à internet para ver o conteúdo do App! </center>";
+}
+				
+				
+</script>
+
+
+<!-- Pegar conteudo do BD e colocar na div_conteudo_curiosidades -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" ></script> 
+<script>
+//Pegar conteudo convite do BD
+			 
+			 var xmlHttp;
+			 var str;
+			 
+			 
+			function createXMLHttpRequest() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest() {
+			createXMLHttpRequest();
+			xmlHttp.onreadystatechange = handleStateChange;
+			
+			
+			
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/pegar_conteudo_do_bd.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("id_app="+id_app+"&aba_do_app=curiosidades");
+
+			
+			
+			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
+			
+			
+		
+			}
+
+			
+			function handleStateChange() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				
+				str = xmlHttp.responseText.trim();
+				
+				if(localStorage.div_conteudo_curiosidades != str){
+				
+					document.getElementById("div_conteudo_curiosidades").innerHTML = str;
+					
+					localStorage.div_conteudo_curiosidades = str;
+					
+				}//fim do if
+				
+				
+			}else{
+				document.getElementById("div_conteudo_curiosidades").innerHTML = localStorage.div_conteudo_curiosidades;
+			}
+			}
+			}	
+			
+			startRequest();
+			
+</script>
+
+
+
+</body>
+</html>

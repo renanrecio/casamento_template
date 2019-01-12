@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html>
+<title>App Debutante</title>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--<link rel="shortcut icon" href="imagesgabi/coroa_favicon.ico">-->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet" type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300i" rel="stylesheet"  type='text/css'>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="icon" href="https://sistematize.com/aplicativo/debutante_template/icone.png">
+
+<meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
+<meta name="apple-mobile-web-app-title" content="App Debutante" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+        // iOS web app full screen hacks.
+        if(window.navigator.standalone == true) {
+                // make all link remain in web app mode.
+                $('a').click(function() {
+                        window.location = $(this).attr('href');
+            return false;
+                });
+        }
+});
+</script>
+
+
+<!--<body style=" background-image: url('https://sistematize.com/aplicativo/debutante_template/imagens/fundo.png'); background-repeat: repeat-y; background-size: 100% 100%; ">
+-->
+<body>
+
+<div style="position: relative; top:0em;  width:100%; height: 3em; background-color: rgb(248, 248, 248);">
+	<center>
+		<span style="font-size:18px; text-align: center; line-height: 2.5em; ">Convite </span>
+	</center>
+</div>
+
+
+<span onclick="window.location = 'index.html';" style="position: absolute; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
+
+<div id="div_conteudo" style="position: relative; top:1em;">
+
+	<!--<center>
+	<h3 style="font-family: &quot;Source Sans Pro&quot;, sans-serif; color: rgb(51, 51, 51); text-align: center;">
+	   <p style="font-family: Poppins, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 10px;">&nbsp;“Um adeus a infância</br>Um sorriso a mocidade</br>Ao amor uma esperança</br>Aos brinquedos uma saudade”</p>
+	</h3>
+
+
+	<p style="text-align: center;"><img src="https://sistematize.com/aplicativo/debutante_template/imagens/cima.png" alt="_______" style="width:100%;"></br></p>
+	<p style="text-align: center; width:80%;"><span style="font-size: 12px; ">É com muita alegria que os pais Lúcia e Roberto convidam para a comemoração</span></p>
+	<p style="text-align: center;"><span style="font-size: 18px;">15 anos</span></p>
+	<p style="text-align: center;"><span style="font-size: 18px;">Gabriela</span></p>
+
+	<p style="text-align: center; font-size:14px;">&nbsp;Dia 20 de novembro de 2018, às 21h&nbsp;&nbsp;</p>
+	   <p style="text-align: center; width:80%;"><span style="font-size: 12px;">Buffet Spazio Olímpia, Av. Helio Pellegrino, 801 - Vila Olímpia - São Paulo - SP</span></p>
+	   <p style="text-align: center;"><img src="https://sistematize.com/aplicativo/debutante_template/imagens/baixo.png" alt="_______" style="width:100%;"><br></p>
+	</center>
+	-->
+</div>
+
+
+<!-- Variaveis de configuração do App -->
+<script src="config_app.js"></script>
+
+<!-- Carregar o que estive no localStorage na div_conteudo para funciona offline -->
+
+<script>
+if( (localStorage.div_conteudo !== '') && (typeof localStorage.div_conteudo !== 'undefined')){
+	document.getElementById("div_conteudo").innerHTML = localStorage.div_conteudo;
+}else{
+	localStorage.div_conteudo = "<center>Sem Internet! Conecte-se à internet para ver o conteúdo do App! </center>";
+}
+				
+				
+</script>
+
+
+<!-- Pegar conteudo do BD e colocar na div_conteudo -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" ></script> 
+<script>
+//Pegar conteudo convite do BD
+			 
+			 var xmlHttp;
+			 var str;
+			 
+			 
+			function createXMLHttpRequest() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest() {
+			createXMLHttpRequest();
+			xmlHttp.onreadystatechange = handleStateChange;
+			
+			
+			
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/pegar_conteudo_do_bd.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("id_app="+id_app+"&aba_do_app=convite");
+
+			
+			
+			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
+			
+			
+		
+			}
+
+			
+			function handleStateChange() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				
+				str = xmlHttp.responseText.trim();
+				
+				if(localStorage.div_conteudo != str){
+				
+					document.getElementById("div_conteudo").innerHTML = str;
+					
+					localStorage.div_conteudo = str;
+					
+				}//fim do if
+				
+				
+			}
+			}
+			}	
+			
+			startRequest();
+			
+</script>
+
+
+<!-- Analisar versao do app [ESTÁ DESABILITADO O CONTROLE DE VERSÃO ABAIXO]-->
+
+<script>
+//Caso o localStorage.versao_app ainda não exista (no primeiro acesso ao App
+/*
+if(typeof localStorage.versao_app === 'undefined'){
+	localStorage.versao_app = "";
+	//startRequest();
+}
+*/
+</script>
+<script>
+//Verificar a versao do app
+	
+	/*		 
+			 
+			function createXMLHttpRequest_versao() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest_versao() {
+			createXMLHttpRequest_versao();
+			xmlHttp.onreadystatechange = handleStateChange_versao;
+			
+			
+			
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/pegar_conteudo_do_bd.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("id_app="+id_app+"&aba_do_app=versao_app");
+
+			
+			
+			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
+			
+			
+		
+			}
+
+			
+			function handleStateChange_versao() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				
+				str = xmlHttp.responseText.trim();
+			
+				if( localStorage.versao_app !== str){ //Se a versão que vem do BD for diferente da guardada dai atualiza a versão guardada e atualiza a div com conteudo vindo do BD
+				
+					localStorage.versao_app = str;
+					startRequest();
+				}//fim do if		
+				
+				
+			}
+			}
+			}	
+			
+			
+			//startRequest_versao();
+	*/
+			
+</script>	
+
+
+
+</body>
+</html>
+

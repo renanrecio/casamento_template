@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html>
+<title>App Debutante</title>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--<link rel="shortcut icon" href="imagesgabi/coroa_favicon.ico">-->
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet" type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300i" rel="stylesheet"  type='text/css'>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="icon" href="https://sistematize.com/aplicativo/debutante_template/icone.png">
+
+
+
+<body>
+
+
+
+<div id="div_conteudo_depoimentos" style="position: relative; top:3em;">
+	
+	<!--
+	
+	<div id="div_recado" style="position:relative; top:3em; left:2.5%; width:95%; " >
+		<div id="div_recado_nome" style="display: table; position:relative; top:0em; left:2.5%; width:95%; height:3em; background-color: white; opacity: 1;  filter: alpha(opacity=100); border-radius:0px; border: solid 1px lightgray; " >
+
+			<span class="nome_recado" style="position:relative; left:10px; font-weight: bold; display: table-cell; vertical-align: middle;"> Nome</span>
+			
+			
+		</div>
+		<div id="div_recado_msg" style="display: table; position:relative; top:0em; left:2.5%; width:95%; height:auto; min-height:3em; background-color: white; opacity: 1;  filter: alpha(opacity=100); border-radius:0px; border: solid 1px lightgray; " >
+
+			<div style="display: table; left:2.5%; position:relative; top:0em; width:95%; height:auto;" >
+				<p style="position:relative;  left: 0px; top:0.5em; display: table-cell; vertical-align: middle;">Esse é um recado</p>
+			</div>
+		</div>
+		</br>
+		
+	</div>
+	
+	
+	
+	
+	</br></br></br></br></br>	
+
+	
+	<div id="div_recado_msg" onclick="document.getElementById('div_escrever_recado').style.display='block';" style="z-index: 0;  text-align:center; display: table; position:fixed; bottom:0em; left:0%; width:100%; height:auto; min-height:3em; background-color: rgb(255,124,177); opacity: 1;  filter: alpha(opacity=100); " >
+
+		<p style="position:relative; display: table-cell; vertical-align: middle; font-weight:bold; color:white;">Escrever Depoimento</p>
+						
+	</div>
+
+	
+	
+
+
+	<div style="z-index: 0; position: fixed; top:0em;  width:100%; height: 3em; background-color: rgb(248, 248, 248);">
+		<center>
+			<span  style="font-size:18px; text-align: center; line-height: 2.5em; ">Depoimentos</span>
+		</center>
+	</div>
+
+	<span  onclick="window.location = 'index.html';"  style="z-index: 0; position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
+
+
+
+
+
+	<div id="div_escrever_recado" style="z-index: 1; display:none; position:fixed; top:3em; left:0%; width:100%; height:100%; background-color: white;" >
+
+		
+		<p style="position:relative; left:20px; font-weight:bold; color:black;">Nome:</p>
+		
+		<input type="text" id="nome" placeholder="Nome" style="position: relative; left:20px; width:90%;" />
+		
+		<p style="position:relative; left:20px; font-weight:bold; color:black;">Depoimento:</p>
+		
+		<textarea id="msg_depoimento" placeholder="Depoimento" style="position: relative; left:20px; width:90%; height:7em;" ></textarea>
+
+		<center>
+		 <input type="button" id="botao_enviar" value="Enviar" onclick="startRequest_enviar_depoimento()" style="position: relative; top:1em; background-color: rgb(255,124,177); color:white; border: 0px; font-size:1.2em;"  />
+		 <p id="msg_enviando" style="display:none; position: relative; top:1em; color:rgb(255,124,177); border: 0px; font-size:1.2em;" > Enviando... </p>
+		</center>
+		
+		
+
+
+		<div style="z-index: 2; position: fixed; top:0em;  width:100%; height: 3em; background-color: rgb(248, 248, 248);">
+			<center>
+				<span  style="font-size:18px; text-align: center; line-height: 2.5em; ">Escrever Depoimento</span>
+			</center>
+		</div>
+
+		<span onclick="document.getElementById('div_escrever_recado').style.display='none';"  style="z-index: 2; position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
+
+		
+						
+	</div>
+	
+	-->
+
+</div>
+
+<!-- Cabeçalho -->
+
+<div style="z-index: 0; position: fixed; top:0em;  width:100%; height: 3em; background-color: rgb(248, 248, 248);">
+	<center>
+		<span  style="font-size:18px; text-align: center; line-height: 2.5em; ">Depoimentos</span>
+	</center>
+</div>
+
+<span  onclick="window.location = 'index.html';"  style="z-index: 0; position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
+
+<!-- -->
+
+
+
+<!-- Variaveis de configuração do App -->
+<script src="config_app.js"></script>
+
+<!-- Carregar o que estive no localStorage na div_conteudo_depoimentos para funciona offline -->
+
+<script>
+if( (localStorage.div_conteudo_depoimentos !== '') && (typeof localStorage.div_conteudo_depoimentos !== 'undefined')){
+	document.getElementById("div_conteudo_depoimentos").innerHTML = localStorage.div_conteudo_depoimentos;
+}else{
+	localStorage.div_conteudo_depoimentos = "<center>Sem Internet! Conecte-se à internet para ver o conteúdo do App! </center>";
+}
+
+
+if( (localStorage.nome_depoimento !== '') && (typeof localStorage.nome_depoimento !== 'undefined')){
+	document.getElementById("nome").value = localStorage.nome_depoimento;
+}else{
+	localStorage.nome_depoimento = "";
+}
+
+				
+				
+</script>
+
+
+<!-- Pegar conteudo do BD e colocar na div_conteudo_depoimentos -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" ></script> 
+<script>
+//Pegar conteudo convite do BD
+			 
+			 var xmlHttp;
+			 var str;
+			 
+			 
+			function createXMLHttpRequest() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest() {
+			createXMLHttpRequest();
+			xmlHttp.onreadystatechange = handleStateChange;
+			
+			
+			
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/selecionar_recados.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("id_app="+id_app);
+
+			
+			
+			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
+			
+			
+		
+			}
+
+			
+			function handleStateChange() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				
+				str = xmlHttp.responseText.trim();
+				
+				if(localStorage.div_conteudo_depoimentos != str){
+				
+					document.getElementById("div_conteudo_depoimentos").innerHTML = str;
+					
+					localStorage.div_conteudo_depoimentos = str;
+					
+				}//fim do if
+				
+				
+			}else{
+			
+				document.getElementById("div_conteudo_depoimentos").innerHTML = localStorage.div_conteudo_depoimentos;
+			}
+			}
+			}	
+			
+			startRequest();
+			
+</script>
+
+
+<script>
+			var nome;
+			
+			var msg_depoimento;
+			 
+			 
+			function createXMLHttpRequest_enviar_depoimento() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest_enviar_depoimento() {
+			createXMLHttpRequest_enviar_depoimento();
+			xmlHttp.onreadystatechange = handleStateChange_enviar_depoimento;
+			
+			nome = document.getElementById('nome').value;
+			msg_depoimento = document.getElementById('msg_depoimento').value;
+			
+			document.getElementById('botao_enviar').style.display = 'none';
+			document.getElementById('msg_enviando').style.display = 'block';
+			
+			 
+			
+			if(nome == ""){
+				alert('Escreva seu nome!');
+				document.getElementById('nome').focus();
+				document.getElementById('botao_enviar').style.display = 'block';
+				document.getElementById('msg_enviando').style.display = 'none';
+				return false;
+			}else{
+			
+				localStorage.nome_depoimento = nome;
+			}
+			
+			if(msg_depoimento == ""){
+				alert('Escreva algum depoimento!');
+				document.getElementById('msg_depoimento').focus();
+				document.getElementById('botao_enviar').style.display = 'block';
+				document.getElementById('msg_enviando').style.display = 'none';
+				return false;
+			}
+			
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/inserir_depoimento_no_BD.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("id_app="+id_app+"&nome="+nome+"&msg_depoimento="+msg_depoimento+"");
+
+			
+			
+			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
+			
+			
+		
+			}
+
+			
+			function handleStateChange_enviar_depoimento() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				
+				str = xmlHttp.responseText.trim();
+				
+				if(str == 1){
+				
+					//document.getElementById('div_escrever_recado').style.display='none';
+					document.getElementById('msg_enviando').style.display = 'none';
+					alert('Mensagem Enviada!');
+					location.reload(); //recarrega a página
+					
+				}else{
+				
+					document.getElementById('botao_enviar').style.display = 'block';
+					document.getElementById('msg_enviando').style.display = 'none';
+				
+				}
+				
+				
+			}else{
+				alert('Sem internet! Conecte-se para enviar o depoimento!');
+				document.getElementById('botao_enviar').style.display = 'block';
+				document.getElementById('msg_enviando').style.display = 'none';
+			}
+			}
+			}	
+			
+			
+
+</script>
+
+</body>
+</html>
