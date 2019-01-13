@@ -28,16 +28,41 @@
 <div id="div_conteudo_localizacao" style="position: relative; top:1em;">
 
 	<!--
-	<center>
-		<iframe width="100%" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYKQvQ46L5NQqZ4KBZF5fSuSUaNZUO5Vo&#10;    &amp;q=Av. Helio Pelegrini, 801 - Vila Olimpia" allowfullscreen="">
-		</iframe>
-	</center>
-
+	<div id="div_locais" >
+		<p onclick="document.getElementById('titulo_local').innerHTML='Celebração Religiosa'; document.getElementById('div_local_igreja').style.display='block'; document.getElementById('div_locais').style.display='none'; document.getElementById('voltar').style.display='none';"  style="font-size:1em; font-weight:bold;"><img src="imagens/icone_igreja.png" style="width: 3.5em; margin-left:10px;" />Celebração Religiosa</p>
+		<p><hr></p>
+		<p onclick="document.getElementById('titulo_local').innerHTML='Festa de Casamento'; document.getElementById('div_local_festa').style.display='block'; document.getElementById('div_locais').style.display='none'; document.getElementById('voltar').style.display='none';" style="font-size:1em; font-weight:bold;"><img src="imagens/icone_local_buffet.png" style="width: 3.5em; margin-left:10px;" />Festa de Casamento</p>
+		<p><hr></p>
+	</div>
 	
-	<p style="font-size:1.5em; line-height:1em; margin-left:10px;">Buffet Spazio Olímpia</p>
-	<p style="font-size:1em; width:80%; margin-left:10px; margin-right:10px;"> Av. Hélio Pellegrino, 801 - Vila Olímpia - São Paulo - SP</p>
+	<div id="div_local_igreja" style="display:none;" >
+		<span onclick="document.getElementById('titulo_local').innerHTML='Local da festa'; document.getElementById('div_local_igreja').style.display='none'; document.getElementById('div_locais').style.display='block'; document.getElementById('voltar').style.display='block';" id="voltar_local_igreja"  style="position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
 
-	<p onclick="window.location = 'index.html';" style="font-size:1em; width:80%; margin-left:10px; margin-right:10px;">Voltar</p>
+		<center>
+			<iframe width="100%" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYKQvQ46L5NQqZ4KBZF5fSuSUaNZUO5Vo&#10;    &amp;q=Av. Helio Pelegrini, 801 - Vila Olimpia" allowfullscreen="">
+			</iframe>
+		</center>
+
+		
+		<p style="font-size:1.5em; line-height:1em; margin-left:10px;">Paróquia São José</p>
+		<p style="font-size:1em; width:80%; margin-left:10px; margin-right:10px;"> Rua Dinamarca, 32 - Jardim Europa - São Paulo - SP</p>
+		
+	</div>
+	
+	<div id="div_local_festa" style="display:none;" >
+		<span onclick="document.getElementById('titulo_local').innerHTML='Local da festa'; document.getElementById('div_local_festa').style.display='none'; document.getElementById('div_locais').style.display='block'; document.getElementById('voltar').style.display='block';" id="voltar_local_festa"  style="position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
+
+		<center>
+			<iframe width="100%" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYKQvQ46L5NQqZ4KBZF5fSuSUaNZUO5Vo&#10;    &amp;q=Av. Helio Pelegrini, 801 - Vila Olimpia" allowfullscreen="">
+			</iframe>
+		</center>
+
+		
+		<p style="font-size:1.5em; line-height:1em; margin-left:10px;">Buffet Spazio Olímpia</p>
+		<p style="font-size:1em; width:80%; margin-left:10px; margin-right:10px;"> Av. Hélio Pellegrino, 801 - Vila Olímpia - São Paulo - SP</p>
+		
+		
+	</div>
 	-->
 	 
 </div>
