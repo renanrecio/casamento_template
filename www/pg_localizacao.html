@@ -29,14 +29,14 @@
 
 	<!--
 	<div id="div_locais" >
-		<p onclick="document.getElementById('titulo_local').innerHTML='Celebração Religiosa'; document.getElementById('div_local_igreja').style.display='block'; document.getElementById('div_locais').style.display='none'; document.getElementById('voltar').style.display='none';"  style="font-size:1em; font-weight:bold;"><img src="imagens/icone_igreja.png" style="width: 3.5em; margin-left:10px;" />Celebração Religiosa</p>
+		<p onclick="document.getElementById('voltar_local_igreja').innerHTML = document.getElementById('voltar').innerHTML; document.getElementById('titulo_local').innerHTML='Celebração Religiosa'; document.getElementById('div_local_igreja').style.display='block'; document.getElementById('div_locais').style.display='none'; document.getElementById('voltar').style.display='none';"  style="font-size:1em; font-weight:bold;"><img src="imagens/icone_igreja.png" style="width: 3.5em; margin-left:10px;" />Celebração Religiosa</p>
 		<p><hr></p>
-		<p onclick="document.getElementById('titulo_local').innerHTML='Festa de Casamento'; document.getElementById('div_local_festa').style.display='block'; document.getElementById('div_locais').style.display='none'; document.getElementById('voltar').style.display='none';" style="font-size:1em; font-weight:bold;"><img src="imagens/icone_local_buffet.png" style="width: 3.5em; margin-left:10px;" />Festa de Casamento</p>
+		<p onclick="document.getElementById('voltar_local_festa').innerHTML = document.getElementById('voltar').innerHTML; document.getElementById('titulo_local').innerHTML='Festa de Casamento'; document.getElementById('div_local_festa').style.display='block'; document.getElementById('div_locais').style.display='none'; document.getElementById('voltar').style.display='none';" style="font-size:1em; font-weight:bold;"><img src="imagens/icone_local_buffet.png" style="width: 3.5em; margin-left:10px;" />Festa de Casamento</p>
 		<p><hr></p>
 	</div>
 	
 	<div id="div_local_igreja" style="display:none;" >
-		<span onclick="document.getElementById('titulo_local').innerHTML='Local da festa'; document.getElementById('div_local_igreja').style.display='none'; document.getElementById('div_locais').style.display='block'; document.getElementById('voltar').style.display='block';" id="voltar_local_igreja"  style="position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
+		<span onclick="document.getElementById('titulo_local').innerHTML='Local da festa'; document.getElementById('div_local_igreja').style.display='none'; document.getElementById('div_locais').style.display='block'; document.getElementById('voltar').style.display='block';" id="voltar_local_igreja"  style="position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; "></span>
 
 		<center>
 			<iframe width="100%" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYKQvQ46L5NQqZ4KBZF5fSuSUaNZUO5Vo&#10;    &amp;q=Av. Helio Pelegrini, 801 - Vila Olimpia" allowfullscreen="">
@@ -50,7 +50,7 @@
 	</div>
 	
 	<div id="div_local_festa" style="display:none;" >
-		<span onclick="document.getElementById('titulo_local').innerHTML='Local da festa'; document.getElementById('div_local_festa').style.display='none'; document.getElementById('div_locais').style.display='block'; document.getElementById('voltar').style.display='block';" id="voltar_local_festa"  style="position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
+		<span onclick="document.getElementById('titulo_local').innerHTML='Local da festa'; document.getElementById('div_local_festa').style.display='none'; document.getElementById('div_locais').style.display='block'; document.getElementById('voltar').style.display='block';" id="voltar_local_festa"  style="position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; "></span>
 
 		<center>
 			<iframe width="100%" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYKQvQ46L5NQqZ4KBZF5fSuSUaNZUO5Vo&#10;    &amp;q=Av. Helio Pelegrini, 801 - Vila Olimpia" allowfullscreen="">
@@ -140,11 +140,16 @@ if( (localStorage.div_conteudo_localizacao !== '') && (typeof localStorage.div_c
 					
 				}//fim do if
 				
+				document.getElementById("mapa_festa").style.display = 'block';
+				document.getElementById("mapa_igreja").style.display = 'block';
+				
 				
 			}else{
 			
-				alert('Sem internet, conecte-se para ver o Mapa!');
+				//alert('Sem internet, conecte-se para ver o Mapa!');
 				document.getElementById("div_conteudo_localizacao").innerHTML = localStorage.div_conteudo_localizacao;
+				document.getElementById("mapa_festa").style.display = 'none';
+				document.getElementById("mapa_igreja").style.display = 'none';
 			}
 			}
 			}	
