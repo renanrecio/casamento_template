@@ -152,7 +152,32 @@ if( (localStorage.div_conteudo_localizacao !== '') && (typeof localStorage.div_c
 			startRequest();
 			
 </script>
+<script>
 
+function abrir_local_igreja(){
+
+	document.getElementById('voltar_local_igreja').innerHTML = document.getElementById('voltar').innerHTML; 
+	document.getElementById('div_local_igreja').style.display='block'; 
+	document.getElementById('div_locais').style.display='none'; 
+	document.getElementById('voltar').style.display='none';
+
+}
+</script>
+
+<script>
+
+function abrir_local_festa(){
+
+	document.getElementById('voltar_local_festa').innerHTML = document.getElementById('voltar').innerHTML;
+	document.getElementById('div_local_festa').style.display='block'; 
+	document.getElementById('div_locais').style.display='none'; 
+	document.getElementById('voltar').style.display='none';
+
+}
+
+</script>
 
 </body>
+
+
 </html>
