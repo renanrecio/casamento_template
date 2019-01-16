@@ -28,6 +28,11 @@
 	-->
 </div>
 
+<div id="div_carregando"  style="position: relative; top:3em; display:none;">
+	<center>
+		<img id="carregando" src="imagens/carregando.gif"  style="position: relative; top:2em; width:10em;" />
+	</center>
+</div>
 
 
 
@@ -105,10 +110,13 @@ if( (localStorage.div_conteudo_site_buffet !== '') && (typeof localStorage.div_c
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
 				
-				
+				document.getElementById("div_carregando").style.display = 'block';
+				document.getElementById("div_conteudo_site_buffet").style.display = 'none';
 				str = xmlHttp.responseText.trim();
 				
 				document.getElementById("div_conteudo_site_buffet").innerHTML = str;
+				document.getElementById("div_conteudo_site_buffet").style.display = 'block';
+				document.getElementById("div_carregando").style.display = 'none';
 					
 				
 				
