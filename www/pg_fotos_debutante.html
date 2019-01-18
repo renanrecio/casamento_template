@@ -281,7 +281,9 @@ if( (localStorage.div_conteudo_fotos_debutante !== '') && (typeof localStorage.d
 				
 			}else{
 			
-				document.getElementById("div_conteudo_fotos_debutante").innerHTML = localStorage.div_conteudo_fotos_debutante ;
+				document.getElementById("div_conteudo_fotos_debutante").innerHTML = localStorage.div_conteudo_fotos_debutante;
+				document.getElementById('div_msg_offline').style.display = 'block';
+				$('#div_msg_offline').fadeOut(9000);
 			}
 			}
 			}	
@@ -290,7 +292,16 @@ if( (localStorage.div_conteudo_fotos_debutante !== '') && (typeof localStorage.d
 			
 </script>
 
+<!-- Mostrar mensagem quando estiver offline -->
 
+<div id="div_msg_offline"  style="display:none; text-align: center; position:fixed; bottom:0.5em; left:2.5%; width:95%; height:4em; background-color: black; opacity: 0.5;  filter: alpha(opacity=50); border-radius:25px; " >
+
+	<center>
+		<p style="color:white;">  Sem internet. Conecte-se para atualizar o conteúdo! </p>
+		<!--<img src onerror="$('#div_msg_offline').fadeOut(12000)"  /> <!--somente para remover a msg de erros após 3 segundos -->
+	</center>
+	
+</div>
 
 
 
